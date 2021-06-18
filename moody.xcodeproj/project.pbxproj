@@ -15,6 +15,10 @@
 		C1975A04267CCE0D006003CA /* moody.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1975A02267CCE0D006003CA /* moody.xcdatamodeld */; };
 		C1975A0F267CCE0D006003CA /* moodyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A0E267CCE0D006003CA /* moodyTests.swift */; };
 		C1975A1A267CCE0D006003CA /* moodyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A19267CCE0D006003CA /* moodyUITests.swift */; };
+		C1975A2B267CCE8E006003CA /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2A267CCE8E006003CA /* Home.swift */; };
+		C1975A2D267CCEAF006003CA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2C267CCEAF006003CA /* ImagePicker.swift */; };
+		C1975A2F267CCEC8006003CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2E267CCEC8006003CA /* HomeViewModel.swift */; };
+		C1975A31267CCEE2006003CA /* FilteredImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A30267CCEE2006003CA /* FilteredImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		C1975A15267CCE0D006003CA /* moodyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moodyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1975A19267CCE0D006003CA /* moodyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodyUITests.swift; sourceTree = "<group>"; };
 		C1975A1B267CCE0D006003CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1975A2A267CCE8E006003CA /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		C1975A2C267CCEAF006003CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C1975A2E267CCEC8006003CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C1975A30267CCEE2006003CA /* FilteredImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,9 @@
 		C19759F6267CCE0A006003CA /* moody */ = {
 			isa = PBXGroup;
 			children = (
+				C1975A29267CCE38006003CA /* View */,
+				C1975A28267CCE32006003CA /* ViewModel */,
+				C1975A27267CCE2B006003CA /* Model */,
 				C19759F7267CCE0B006003CA /* moodyApp.swift */,
 				C19759F9267CCE0B006003CA /* ContentView.swift */,
 				C19759FB267CCE0D006003CA /* Assets.xcassets */,
@@ -134,6 +145,31 @@
 				C1975A1B267CCE0D006003CA /* Info.plist */,
 			);
 			path = moodyUITests;
+			sourceTree = "<group>";
+		};
+		C1975A27267CCE2B006003CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1975A30267CCEE2006003CA /* FilteredImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1975A28267CCE32006003CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1975A2E267CCEC8006003CA /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1975A29267CCE38006003CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1975A2A267CCE8E006003CA /* Home.swift */,
+				C1975A2C267CCEAF006003CA /* ImagePicker.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1975A31267CCEE2006003CA /* FilteredImage.swift in Sources */,
 				C1975A01267CCE0D006003CA /* Persistence.swift in Sources */,
 				C19759FA267CCE0B006003CA /* ContentView.swift in Sources */,
+				C1975A2F267CCEC8006003CA /* HomeViewModel.swift in Sources */,
+				C1975A2B267CCE8E006003CA /* Home.swift in Sources */,
+				C1975A2D267CCEAF006003CA /* ImagePicker.swift in Sources */,
 				C1975A04267CCE0D006003CA /* moody.xcdatamodeld in Sources */,
 				C19759F8267CCE0B006003CA /* moodyApp.swift in Sources */,
 			);
