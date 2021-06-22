@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89110C812680AB50002779AA /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C802680AB50002779AA /* FilterView.swift */; };
+		89110C832680AD0E002779AA /* TuneImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C822680AD0E002779AA /* TuneImage.swift */; };
+		89110C862680BCA0002779AA /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C852680BCA0002779AA /* EditView.swift */; };
+		89110C882680BCEB002779AA /* BottomNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C872680BCEB002779AA /* BottomNavigationButton.swift */; };
+		89110C8B2680BD57002779AA /* BottomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C8A2680BD57002779AA /* BottomNavigationBar.swift */; };
+		89110C8D2680C729002779AA /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C8C2680C729002779AA /* ImageEditor.swift */; };
+		895BFC3A2680829000EB783E /* TuningPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895BFC392680829000EB783E /* TuningPanel.swift */; };
 		C19759F8267CCE0B006003CA /* moodyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19759F7267CCE0B006003CA /* moodyApp.swift */; };
 		C19759FA267CCE0B006003CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19759F9267CCE0B006003CA /* ContentView.swift */; };
 		C19759FC267CCE0D006003CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C19759FB267CCE0D006003CA /* Assets.xcassets */; };
@@ -15,7 +22,7 @@
 		C1975A04267CCE0D006003CA /* moody.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1975A02267CCE0D006003CA /* moody.xcdatamodeld */; };
 		C1975A0F267CCE0D006003CA /* moodyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A0E267CCE0D006003CA /* moodyTests.swift */; };
 		C1975A1A267CCE0D006003CA /* moodyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A19267CCE0D006003CA /* moodyUITests.swift */; };
-		C1975A2B267CCE8E006003CA /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2A267CCE8E006003CA /* Home.swift */; };
+		C1975A2B267CCE8E006003CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2A267CCE8E006003CA /* HomeView.swift */; };
 		C1975A2D267CCEAF006003CA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2C267CCEAF006003CA /* ImagePicker.swift */; };
 		C1975A2F267CCEC8006003CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A2E267CCEC8006003CA /* HomeViewModel.swift */; };
 		C1975A31267CCEE2006003CA /* FilteredImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1975A30267CCEE2006003CA /* FilteredImage.swift */; };
@@ -39,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		89110C802680AB50002779AA /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		89110C822680AD0E002779AA /* TuneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuneImage.swift; sourceTree = "<group>"; };
+		89110C852680BCA0002779AA /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		89110C872680BCEB002779AA /* BottomNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationButton.swift; sourceTree = "<group>"; };
+		89110C8A2680BD57002779AA /* BottomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationBar.swift; sourceTree = "<group>"; };
+		89110C8C2680C729002779AA /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
+		895BFC392680829000EB783E /* TuningPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningPanel.swift; sourceTree = "<group>"; };
 		C19759F4267CCE0A006003CA /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19759F7267CCE0B006003CA /* moodyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodyApp.swift; sourceTree = "<group>"; };
 		C19759F9267CCE0B006003CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +67,7 @@
 		C1975A15267CCE0D006003CA /* moodyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moodyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1975A19267CCE0D006003CA /* moodyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodyUITests.swift; sourceTree = "<group>"; };
 		C1975A1B267CCE0D006003CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1975A2A267CCE8E006003CA /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		C1975A2A267CCE8E006003CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C1975A2C267CCEAF006003CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C1975A2E267CCEC8006003CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C1975A30267CCEE2006003CA /* FilteredImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImage.swift; sourceTree = "<group>"; };
@@ -84,6 +98,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89110C842680AD30002779AA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				89110C872680BCEB002779AA /* BottomNavigationButton.swift */,
+				89110C822680AD0E002779AA /* TuneImage.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		89110C892680BD18002779AA /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				89110C852680BCA0002779AA /* EditView.swift */,
+				895BFC392680829000EB783E /* TuningPanel.swift */,
+			);
+			name = Edit;
+			sourceTree = "<group>";
+		};
 		C19759EB267CCE0A006003CA = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +143,7 @@
 				C1975A28267CCE32006003CA /* ViewModel */,
 				C1975A27267CCE2B006003CA /* Model */,
 				C19759F7267CCE0B006003CA /* moodyApp.swift */,
+				89110C842680AD30002779AA /* Helper */,
 				C19759F9267CCE0B006003CA /* ContentView.swift */,
 				C19759FB267CCE0D006003CA /* Assets.xcassets */,
 				C1975A00267CCE0D006003CA /* Persistence.swift */,
@@ -159,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				C1975A2E267CCEC8006003CA /* HomeViewModel.swift */,
+				89110C8C2680C729002779AA /* ImageEditor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,7 +200,10 @@
 		C1975A29267CCE38006003CA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C1975A2A267CCE8E006003CA /* Home.swift */,
+				89110C892680BD18002779AA /* Edit */,
+				C1975A2A267CCE8E006003CA /* HomeView.swift */,
+				89110C8A2680BD57002779AA /* BottomNavigationBar.swift */,
+				89110C802680AB50002779AA /* FilterView.swift */,
 				C1975A2C267CCEAF006003CA /* ImagePicker.swift */,
 			);
 			name = View;
@@ -303,11 +340,18 @@
 			files = (
 				C1975A31267CCEE2006003CA /* FilteredImage.swift in Sources */,
 				C1975A01267CCE0D006003CA /* Persistence.swift in Sources */,
+				89110C882680BCEB002779AA /* BottomNavigationButton.swift in Sources */,
+				89110C862680BCA0002779AA /* EditView.swift in Sources */,
 				C19759FA267CCE0B006003CA /* ContentView.swift in Sources */,
 				C1975A2F267CCEC8006003CA /* HomeViewModel.swift in Sources */,
-				C1975A2B267CCE8E006003CA /* Home.swift in Sources */,
+				89110C832680AD0E002779AA /* TuneImage.swift in Sources */,
+				C1975A2B267CCE8E006003CA /* HomeView.swift in Sources */,
+				89110C8D2680C729002779AA /* ImageEditor.swift in Sources */,
 				C1975A2D267CCEAF006003CA /* ImagePicker.swift in Sources */,
 				C1975A04267CCE0D006003CA /* moody.xcdatamodeld in Sources */,
+				895BFC3A2680829000EB783E /* TuningPanel.swift in Sources */,
+				89110C812680AB50002779AA /* FilterView.swift in Sources */,
+				89110C8B2680BD57002779AA /* BottomNavigationBar.swift in Sources */,
 				C19759F8267CCE0B006003CA /* moodyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +511,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"moody/Preview Content\"";
+				DEVELOPMENT_TEAM = 96XCF965VW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = moody/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -488,6 +533,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"moody/Preview Content\"";
+				DEVELOPMENT_TEAM = 96XCF965VW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = moody/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

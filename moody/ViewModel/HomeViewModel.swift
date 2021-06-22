@@ -10,6 +10,7 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 
 class HomeViewModel: ObservableObject {
+	
     @Published var imagePicker = false
     @Published var imageData = Data(count: 0)
     
