@@ -9,14 +9,14 @@ import SwiftUI
 
 struct TuningPanel: View {
 	
-	@State private var currentTuneFactor = ImageTuneFactor.brightness
-	@Binding var tuneAdjustment: [ImageTuneFactor: Double]
+	@EnvironmentObject var editor: ImageEditor
+	@State private var currentColorControl = ImageColorControl.brightness
 	
-	private var bindingToCurrentFactor:  Binding<Double> {
+	private var bindingToCurrentControl:  Binding<Double> {
 		 Binding<Double> {
-			tuneAdjustment[currentTuneFactor] ?? 0.5
+			editor.colorControl[currentColorControl]!
 		} set: {
-			tuneAdjustment[currentTuneFactor] = $0
+			editor.colorControl[currentColorControl] = $0
 		}
 	}
 	
@@ -24,12 +24,12 @@ struct TuningPanel: View {
 		
 		VStack {
 			HStack {
-				ForEach(ImageTuneFactor.allCases, id: \.rawValue) {
+				ForEach(ImageColorControl.allCases, id: \.rawValue) {
 					drawButton(for: $0)
 				}
 			}
 			sliderLabel
-			Slider(value: bindingToCurrentFactor, in: 0...1) {
+			Slider(value: bindingToCurrentControl, in: 0...1) {
 				// For accessbility
 				sliderLabel
 			}
@@ -38,33 +38,33 @@ struct TuningPanel: View {
 		.padding(.vertical, Constant.verticalPadding)
 	}
 	
-	private func drawButton(for tuneFactor: ImageTuneFactor) -> some View {
+	private func drawButton(for tuneFactor: ImageColorControl) -> some View {
 		Button(action: {
 			withAnimation{
-				currentTuneFactor = tuneFactor
+				currentColorControl = tuneFactor
 			}
 		}) {
 			tuneFactor.label
 		}
 		.buttonStyle(BottomNavigation())
-		.foregroundColor(tuneFactor == currentTuneFactor ? .yellow: .white)
-		.scaleEffect(tuneFactor == currentTuneFactor ? 1.3: 1)
+		.foregroundColor(tuneFactor == currentColorControl ? .yellow: .white)
+		.scaleEffect(tuneFactor == currentColorControl ? 1.3: 1)
 		.padding(.horizontal)
 	}
 	
 	private var sliderLabel: some View {
-		Text(currentTuneFactor.rawValue)
+		Text(currentColorControl.rawValue)
 			.foregroundColor(.blue)
 	}
 	
 	struct Constant {
 		static let horizontalPadding: CGFloat = 50
-		static let verticalPadding: CGFloat = 100
+		static let verticalPadding: CGFloat = 30
 	}
 }
 
 struct ImageTuningPanel_Previews: PreviewProvider {
     static var previews: some View {
-		TuningPanel(tuneAdjustment: Binding.constant(ImageTuneFactor.defaults))
+		TuningPanel()
     }
 }

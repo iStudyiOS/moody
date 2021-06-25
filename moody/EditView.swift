@@ -6,81 +6,92 @@
 //
 
 import SwiftUI
-import Combine
 
-struct EditView: View {
+struct EditView: View, EditorDelegation {
 	
 	@EnvironmentObject var editor: ImageEditor
-	@State private var tuneAdjustment = ImageTuneFactor.defaults
 	@State private var isShowingPicker = false
+	@State private var feedBackImage: Image?
 	
     var body: some View {
-		VStack {
-			if editor.currentImage != nil {
-				ScrollView([.vertical, .horizontal],
-						   showsIndicators: false) {
-					editingImage
-						.applyTuning(tuneAdjustment)
-				}
+		ZStack {
+			VStack(spacing: 0) {
+				EditingImage()
+					.contentShape(Rectangle())
+				TuningPanel()
+					.onChange(of: isShowingPicker, perform: resetTunner(_:))
 			}
-			Spacer()
-			TuningPanel(tuneAdjustment: $tuneAdjustment)
-				.onChange(of: isShowingPicker, perform: resetTunner(_:))
+			FeedBackView(feedBackImage: $feedBackImage)
 		}
 		.toolbar{
+			ToolbarItem(placement: .navigationBarLeading, content: drawSaveButton)
 			ToolbarItem(placement: .navigationBarTrailing,
 						content: drawPickerButton)
 		}
-		.sheet(isPresented: $isShowingPicker) {
-			imagePicker
-		}
+		.sheet(isPresented: $isShowingPicker, content: createImagePicker)
+		.onAppear (perform: showPickerIfNeeded)
 		.navigationTitle("Edit")
     }
 	
-	private func resetTunner(_ pickerPresenting: Bool) {
-		guard !pickerPresenting,
-				 editor.currentImage != nil else {
-			return
-		}
-		withAnimation {
-			tuneAdjustment = ImageTuneFactor.defaults
+	private func drawSaveButton() -> some View {
+		Button(action: {
+			editor.saveImage()
+		}) {
+			Text("SAVE")
+				.font(.title)
 		}
 	}
 	
 	private func drawPickerButton() -> some View {
 		Button(action: {
-				isShowingPicker.toggle()
+			isShowingPicker = true
 		}) {
 			Image(systemName: "photo")
 				.font(.title2)
 		}
-		.onAppear {
-			if editor.currentImage == nil {
-				DispatchQueue.main.async {
-					isShowingPicker = true
-				}
+	}
+	
+	private func createImagePicker () -> ImagePicker {
+		ImagePicker(
+			picker: $isShowingPicker,
+			imageData: Binding<Data>.constant(Data()),
+			passImage: editor.setNewImage)
+	}
+	
+	private func resetTunner(_ pickerPresenting: Bool) {
+		guard !isShowingPicker else { return }
+		withAnimation {
+			editor.colorControl = ImageColorControl.defaults
+		}
+	}
+	
+	private func showPickerIfNeeded() {
+		guard editor.delegate == nil else {
+			return 
+		}
+		editor.delegate = self
+		if editor.currentImage == nil {
+			DispatchQueue.main.async {
+				isShowingPicker = true
 			}
 		}
 	}
 	
-	private var imagePicker: ImagePicker {
-		ImagePicker(
-		picker: $isShowingPicker,
-		imageData: Binding<Data>.constant(Data()),
-		passImage: editor.pickNewImage)
+	// Editor delegation
+	func savingCompletion(error: Error?) {
+		if error == nil {
+			withAnimation{
+				feedBackImage = Image(systemName: "checkmark")
+			}
+		}else {
+			print("Fail to save image: \(error!.localizedDescription)")
+		}
 	}
-	
-	private var editingImage: some View {
-		Image(uiImage: editor.currentImage!)
-			.resizable()
-			.aspectRatio(contentMode: .fit)
-			.frame(width: UIScreen.main.bounds.width)
-	}
-	
 }
 
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
         EditView()
+			.environmentObject(ImageEditor())
     }
 }

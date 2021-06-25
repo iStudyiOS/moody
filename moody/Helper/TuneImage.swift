@@ -1,5 +1,5 @@
 //
-//  TuneImage.swift
+//  ImageColorControl.swift
 //  moody
 //
 //  Created by bart Shin on 21/06/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ImageTuneFactor: String, Hashable, CaseIterable {
+enum ImageColorControl: String, Hashable, CaseIterable {
 	
 	case brightness = "밝기"
 	case saturation = "채도"
@@ -21,7 +21,7 @@ enum ImageTuneFactor: String, Hashable, CaseIterable {
 				return 1
 		}
 	}
-	/// All factor is 0.5 by defaults
+	
 	static var defaults: [Self: Double] {
 		Self.allCases.reduce(into: [Self: Double]()) {
 			$0[$1] = $1.defaultValue
@@ -38,14 +38,5 @@ enum ImageTuneFactor: String, Hashable, CaseIterable {
 				return Image(systemName: "circle.lefthalf.fill")
 		}
 	}
+	
 }
-
-extension View {
-	func applyTuning(_ adjustment: [ImageTuneFactor: Double]) -> some View {
-		self
-			.brightness(adjustment[.brightness] ?? ImageTuneFactor.brightness.defaultValue)
-			.contrast(adjustment[.contrast] ?? ImageTuneFactor.contrast.defaultValue)
-			.saturation(adjustment[.saturation] ?? ImageTuneFactor.saturation.defaultValue)
-	}
-}
-

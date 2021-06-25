@@ -57,6 +57,8 @@ struct ImagePicker: UIViewControllerRepresentable {
 						}
 					}
 				}
+			}else {
+				self.parent.picker.toggle()
 			}
         }
     }
