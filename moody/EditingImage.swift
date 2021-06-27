@@ -6,42 +6,64 @@
 //
 
 import SwiftUI
+import PencilKit
 
 struct EditingImage: View {
 	
 	@EnvironmentObject var editor: ImageEditor
+	@Binding var currentControl: String
+	
 	private var image: UIImage {
-		UIImage(cgImage: editor.currentImage!)
+		editor.imageForDisplay!
+	}
+	
+	private var isDrawingMask: Bool {
+		currentControl == ImageBlurControl.mask.rawValue
 	}
 	
 	var body: some View {
-		if editor.currentImage != nil {
+		if editor.imageForDisplay != nil {
 			GeometryReader { geometry in
-				editingImage
+				drawImage(in: geometry.size)
+					.scaleEffect(zoomScale)
 					.position(x: geometry.size.width / 2 + panningOffset.width,
 							  y: geometry.size.height / 2 + panningOffset.height)
 					.gesture(panGesture(in: geometry.size)
 								.simultaneously(with: zoomGesture(in: geometry.size))
-								.simultaneously(with: doubleTapToFit(in: geometry.size)))
-					.onAppear {
-						fixedZoomScale = getScaleToFit(in: geometry.size)
-					}
-					.onChange(of: editor.currentImage) {
-						if $0 != nil {
-							fixedZoomScale = getScaleToFit(in: geometry.size)
-							fixedPanOffset = .zero
-						}
-					}
-					.clipped()
+								.simultaneously(with: doubleTapGesture(in: geometry.size)))
+					.allowsHitTesting(!isDrawingMask)
+				.clipped()
 			}
 		}
 	}
 	
-	private var editingImage: some View {
+	private func drawImage(in size: CGSize) -> some View {
 		Image(uiImage: image)
-			.aspectRatio(contentMode: .fill)
-			.scaleEffect(zoomScale)
+			.aspectRatio(contentMode: .fit)
+			.onAppear {
+				fixedZoomScale = getScaleToFit(in: size)
+				editor.blurMarkerWidth = min(60 / fixedZoomScale, 60)
+			}
+			.onChange(of: editor.originalImage) {
+				if $0 != nil {
+					zoomToFit(for: size)
+					editor.blurMask.drawing.strokes = []
+				}
+			}
+			.onChange(of: currentControl) {
+				if $0 == ImageBlurControl.mask.rawValue {
+					zoomToFit(for: size)
+				}else {
+					editor.blurMask.drawing.strokes = []
+				}
+			}
+			.overlay(
+				BlurMaskView(canvas: $editor.blurMask, markerWidth: $editor.blurMarkerWidth)
+					.colorInvert()
+					.allowsHitTesting(isDrawingMask)
+			)
 	}
+	
 	
 	//MARK:- Zooming
 	
@@ -55,9 +77,11 @@ struct EditingImage: View {
 	private func zoomGesture(in size: CGSize) -> some Gesture {
 		MagnificationGesture()
 			.updating($gestureZoomScale) { lastScale, gestureZoomScale, _ in
+				guard !isDrawingMask else { return }
 				gestureZoomScale = lastScale
 			}
 			.onEnded { scale in
+				guard !isDrawingMask else { return }
 				let defaultScale = getScaleToFit(in: size)
 				fixedZoomScale *= scale
 				if defaultScale > fixedZoomScale * scale {
@@ -69,14 +93,18 @@ struct EditingImage: View {
 			}
 	}
 	
-	private func doubleTapToFit(in size: CGSize) -> some Gesture {
+	private func doubleTapGesture(in size: CGSize) -> some Gesture {
 		TapGesture(count: 2)
 			.onEnded {
-				withAnimation {
-					fixedPanOffset = .zero
-					fixedZoomScale = getScaleToFit(in: size)
-				}
+				zoomToFit(for: size)
 			}
+	}
+	
+	private func zoomToFit(for size: CGSize) {
+		withAnimation {
+			fixedPanOffset = .zero
+			fixedZoomScale = getScaleToFit(in: size)
+		}
 	}
 	
 	private func getScaleToFit(in size: CGSize) -> CGFloat {
@@ -98,6 +126,7 @@ struct EditingImage: View {
 	
 	private func panGesture(in size: CGSize) -> some Gesture {
 		DragGesture()
+			
 			.updating($gesturePanOffset) { lastestDragGestureValue, gesturePanOffset, _ in
 				guard calcPanableSpace(in: size) != nil else {
 					return
@@ -151,5 +180,13 @@ struct EditingImage: View {
 		return CGSize(
 			width: image.size.width * (zoomScale - defaultZoomScale) / 2,
 			height: image.size.height * (zoomScale - defaultZoomScale) / 2)
+	}
+}
+
+
+struct EditingImage_Previews: PreviewProvider {
+	static var previews: some View {
+		EditingImage(currentControl: Binding<String>.constant(ImageColorControl.brightness.rawValue))
+			.environmentObject(ImageEditor.forPreview)
 	}
 }

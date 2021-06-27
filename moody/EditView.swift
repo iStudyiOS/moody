@@ -12,14 +12,16 @@ struct EditView: View, EditorDelegation {
 	@EnvironmentObject var editor: ImageEditor
 	@State private var isShowingPicker = false
 	@State private var feedBackImage: Image?
+	@State private var currentControl: String = ImageColorControl.brightness.rawValue
 	
     var body: some View {
 		ZStack {
 			VStack(spacing: 0) {
-				EditingImage()
+				EditingImage(currentControl: $currentControl) 
 					.contentShape(Rectangle())
-				TuningPanel()
+				TuningPanel(currentControl: $currentControl)
 					.onChange(of: isShowingPicker, perform: resetTunner(_:))
+					.disabled(editor.imageForDisplay == nil)
 			}
 			FeedBackView(feedBackImage: $feedBackImage)
 		}
@@ -70,7 +72,7 @@ struct EditView: View, EditorDelegation {
 			return 
 		}
 		editor.delegate = self
-		if editor.currentImage == nil {
+		if editor.imageForDisplay == nil {
 			DispatchQueue.main.async {
 				isShowingPicker = true
 			}
@@ -92,6 +94,6 @@ struct EditView: View, EditorDelegation {
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
         EditView()
-			.environmentObject(ImageEditor())
+			.environmentObject(ImageEditor.forPreview)
     }
 }

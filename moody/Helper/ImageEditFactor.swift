@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum ImageBlurControl: String {
+	case mask
+}
+
 enum ImageColorControl: String, Hashable, CaseIterable {
 	
 	case brightness = "밝기"
@@ -28,7 +32,7 @@ enum ImageColorControl: String, Hashable, CaseIterable {
 		}
 	}
 	
-	var label: some View {
+	var label: Image {
 		switch self {
 			case .brightness:
 				return Image(systemName: "sun.max")

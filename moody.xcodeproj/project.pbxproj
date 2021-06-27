@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		89110C812680AB50002779AA /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C802680AB50002779AA /* FilterView.swift */; };
-		89110C832680AD0E002779AA /* TuneImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C822680AD0E002779AA /* TuneImage.swift */; };
+		89110C832680AD0E002779AA /* ImageEditFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C822680AD0E002779AA /* ImageEditFactor.swift */; };
 		89110C862680BCA0002779AA /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C852680BCA0002779AA /* EditView.swift */; };
 		89110C882680BCEB002779AA /* BottomNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C872680BCEB002779AA /* BottomNavigationButton.swift */; };
 		89110C8B2680BD57002779AA /* BottomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C8A2680BD57002779AA /* BottomNavigationBar.swift */; };
 		89110C8D2680C729002779AA /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89110C8C2680C729002779AA /* ImageEditor.swift */; };
 		891DF6912684277A00A314B8 /* EditingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DF6902684277A00A314B8 /* EditingImage.swift */; };
 		891DF6932684283400A314B8 /* FeedBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DF6922684283400A314B8 /* FeedBackView.swift */; };
+		894A3B1E2686BE020091D5FE /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A3B1D2686BE020091D5FE /* Publish.swift */; };
 		895BFC3A2680829000EB783E /* TuningPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895BFC392680829000EB783E /* TuningPanel.swift */; };
+		898C02CC2685BA78008A2B2C /* BlurMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C02CB2685BA78008A2B2C /* BlurMaskView.swift */; };
 		C19759F8267CCE0B006003CA /* moodyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19759F7267CCE0B006003CA /* moodyApp.swift */; };
 		C19759FA267CCE0B006003CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19759F9267CCE0B006003CA /* ContentView.swift */; };
 		C19759FC267CCE0D006003CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C19759FB267CCE0D006003CA /* Assets.xcassets */; };
@@ -49,14 +51,16 @@
 
 /* Begin PBXFileReference section */
 		89110C802680AB50002779AA /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
-		89110C822680AD0E002779AA /* TuneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuneImage.swift; sourceTree = "<group>"; };
+		89110C822680AD0E002779AA /* ImageEditFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditFactor.swift; sourceTree = "<group>"; };
 		89110C852680BCA0002779AA /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		89110C872680BCEB002779AA /* BottomNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationButton.swift; sourceTree = "<group>"; };
 		89110C8A2680BD57002779AA /* BottomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationBar.swift; sourceTree = "<group>"; };
 		89110C8C2680C729002779AA /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		891DF6902684277A00A314B8 /* EditingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImage.swift; sourceTree = "<group>"; };
 		891DF6922684283400A314B8 /* FeedBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackView.swift; sourceTree = "<group>"; };
+		894A3B1D2686BE020091D5FE /* Publish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publish.swift; sourceTree = "<group>"; };
 		895BFC392680829000EB783E /* TuningPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningPanel.swift; sourceTree = "<group>"; };
+		898C02CB2685BA78008A2B2C /* BlurMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurMaskView.swift; sourceTree = "<group>"; };
 		C19759F4267CCE0A006003CA /* moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19759F7267CCE0B006003CA /* moodyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodyApp.swift; sourceTree = "<group>"; };
 		C19759F9267CCE0B006003CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,7 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				89110C872680BCEB002779AA /* BottomNavigationButton.swift */,
-				89110C822680AD0E002779AA /* TuneImage.swift */,
+				89110C822680AD0E002779AA /* ImageEditFactor.swift */,
+				894A3B1D2686BE020091D5FE /* Publish.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		C19759EB267CCE0A006003CA = {
 			isa = PBXGroup;
 			children = (
+				898C02CB2685BA78008A2B2C /* BlurMaskView.swift */,
 				C19759F6267CCE0A006003CA /* moody */,
 				C1975A0D267CCE0D006003CA /* moodyTests */,
 				C1975A18267CCE0D006003CA /* moodyUITests */,
@@ -345,13 +351,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1975A31267CCEE2006003CA /* FilteredImage.swift in Sources */,
+				894A3B1E2686BE020091D5FE /* Publish.swift in Sources */,
 				C1975A01267CCE0D006003CA /* Persistence.swift in Sources */,
 				89110C882680BCEB002779AA /* BottomNavigationButton.swift in Sources */,
+				898C02CC2685BA78008A2B2C /* BlurMaskView.swift in Sources */,
 				89110C862680BCA0002779AA /* EditView.swift in Sources */,
 				891DF6912684277A00A314B8 /* EditingImage.swift in Sources */,
 				C19759FA267CCE0B006003CA /* ContentView.swift in Sources */,
 				C1975A2F267CCEC8006003CA /* HomeViewModel.swift in Sources */,
-				89110C832680AD0E002779AA /* TuneImage.swift in Sources */,
+				89110C832680AD0E002779AA /* ImageEditFactor.swift in Sources */,
 				C1975A2B267CCE8E006003CA /* HomeView.swift in Sources */,
 				891DF6932684283400A314B8 /* FeedBackView.swift in Sources */,
 				89110C8D2680C729002779AA /* ImageEditor.swift in Sources */,
