@@ -11,16 +11,19 @@ import CoreData
 import SwiftUI
 
 struct ContentView: View {
+	let editor = ImageEditor()
+	
     var body: some View {
         NavigationView{
-            Home()
-                .navigationBarTitle("Filter")
+            HomeView()
                 .preferredColorScheme(.dark)
         }
+		.environmentObject(editor)
     }
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+			.environmentObject(ImageEditor.forPreview)
     }
 }
